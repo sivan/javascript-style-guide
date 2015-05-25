@@ -7,7 +7,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 
   1. [类型](#types)
   1. [对象](#objects)
-  1. [数字](#arrays)
+  1. [数组](#arrays)
   1. [字符串](#strings)
   1. [函数](#functions)
   1. [属性](#properties)
@@ -16,7 +16,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
   1. [比较运算符 & 等号](#comparison-operators--equality)
   1. [块](#blocks)
   1. [注释](#comments)
-  1. [Whitespace](#whitespace)
+  1. [空白](#whitespace)
   1. [Commas](#commas)
   1. [Semicolons](#semicolons)
   1. [Type Casting & Coercion](#type-casting--coercion)
@@ -37,7 +37,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
   1. [Contributors](#contributors)
   1. [License](#license)
 
-## 类型
+## <a name="types">类型</a>
 
   - **原始值**: 存取直接作用于它自身。-
 
@@ -72,7 +72,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 
 **[⬆ 回到顶部](#table-of-contents)**
 
-## 对象
+## <a name="objects">对象</a>
 
   - 使用直接量创建对象。
 
@@ -121,7 +121,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 
 **[⬆ 回到顶部](#table-of-contents)**
 
-## 数组
+## <a name="arrays">数组</a>
 
   - 使用直接量创建数组。
 
@@ -174,7 +174,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## 字符串
+## <a name="strings">字符串</a>
 
   - 使用单引号 `''` 包裹字符串。
 
@@ -259,7 +259,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## 函数
+## <a name="functions">函数</a>
 
   - 函数表达式：
 
@@ -318,7 +318,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 
 
 
-## 属性
+## <a name="properties">属性</a>
 
   - 使用 `.` 来访问对象的属性。
 
@@ -353,7 +353,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## 变量
+## <a name="variables">变量</a>
 
   - 总是使用 `var` 来声明变量。不这么做将导致产生全局变量。我们要避免污染全局命名空间。
 
@@ -475,7 +475,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## 提升
+## <a name="hoisting">提升</a>
 
   - 变量声明会提升至作用域顶部，但赋值不会。
 
@@ -559,7 +559,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 
 
 
-## 比较运算符 & 等号
+## <a name="comparison-operators--equality">比较运算符 & 等号</a>
 
   - 优先使用 `===` 和 `!==` 而不是 `==` 和 `!=`.
   - 条件表达式例如 `if` 语句通过抽象方法 `ToBoolean` 强制计算它们的表达式并且总是遵守下面的规则：
@@ -607,7 +607,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## 块
+## <a name="blocks">块</a>
 
   - 使用大括号包裹所有的多行代码块。
 
@@ -658,7 +658,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## 注释
+## <a name="comments">注释</a>
 
   - 使用 `/** ... */` 作为多行注释。包含描述、指定所有参数和返回值的类型和值。
 
@@ -751,7 +751,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## 空白
+## <a name="whitespace">空白</a>
 
   - 使用 2 个空格作为缩进。
 
