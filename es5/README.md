@@ -17,11 +17,11 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
   1. [块](#blocks)
   1. [注释](#comments)
   1. [空白](#whitespace)
-  1. [Commas](#commas)
-  1. [Semicolons](#semicolons)
-  1. [Type Casting & Coercion](#type-casting--coercion)
-  1. [Naming Conventions](#naming-conventions)
-  1. [Accessors](#accessors)
+  1. [逗号](#commas)
+  1. [分号](#semicolons)
+  1. [文件类型](#type-casting--coercion)
+  1. [命名规则](#naming-conventions)
+  1. [存取器](#accessors)
   1. [Constructors](#constructors)
   1. [Events](#events)
   1. [Modules](#modules)
@@ -722,7 +722,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     }
     ```
 
-  - 给注释增加 `FIXME` 或 `TODO` 的前缀可以帮助其他开发者快速了解这是一个需要复查的问题，或是给需要处理的问题提供一个解决方式。这将有别于常见的注释，因为它们是可操作的。使用 `FIXME -- need to figure this out` 或者 `TODO -- need to implement`。
+  - 给注释增加 `FIXME` 或 `TODO` 的前缀可以帮助其他开发者快速了解这是一个需要复查的问题，或是给需要实现的功能提供一个解决方式。这将有别于常见的注释，因为它们是可操作的。使用 `FIXME -- need to figure this out` 或者 `TODO -- need to implement`。
 
   - 使用 `// FIXME:` 标注问题。
 
@@ -935,9 +935,9 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 
 **[⬆ 回到顶部](#table-of-contents)**
 
-## Commas
+## 逗号
 
-  - Leading commas: **Nope.**
+  - 行首逗号: **不需要**。
 
     ```javascript
     // bad
@@ -971,7 +971,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     };
     ```
 
-  - Additional trailing comma: **Nope.** This can cause problems with IE6/7 and IE9 if it's in quirksmode. Also, in some implementations of ES3 would add length to an array if it had an additional trailing comma. This was clarified in ES5 ([source](http://es5.github.io/#D)):
+  - 额外的行末逗号：**不需要**。这样做会在 IE6/7 和 IE9 怪异模式下引起问题。同样，多余的逗号在某些 ES3 的实现里会增加数组的长度。在 ES5 中已经澄清了 ([source](http://es5.github.io/#D))：
 
   > Edition 5 clarifies the fact that a trailing comma at the end of an ArrayInitialiser does not add to the length of the array. This is not a semantic change from Edition 3 but some implementations may have previously misinterpreted this.
 
@@ -1002,9 +1002,9 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## Semicolons
+## 分号
 
-  - **Yup.**
+  - **使用分号。**
 
     ```javascript
     // bad
@@ -1019,22 +1019,22 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
       return name;
     })();
 
-    // good (guards against the function becoming an argument when two files with IIFEs are concatenated)
+    // good (防止函数在两个 IIFE 合并时被当成一个参数
     ;(function() {
       var name = 'Skywalker';
       return name;
     })();
     ```
 
-    [Read more](http://stackoverflow.com/a/7365214/1712802).
+    [了解更多](http://stackoverflow.com/a/7365214/1712802).
 
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## Type Casting & Coercion
+## 类型转换
 
-  - Perform type coercion at the beginning of the statement.
-  - Strings:
+  - 在语句开始时执行类型转换。
+  - 字符串：
 
     ```javascript
     //  => this.reviewScore = 9;
@@ -1052,7 +1052,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     var totalScore = this.reviewScore + ' total score';
     ```
 
-  - Use `parseInt` for Numbers and always with a radix for type casting.
+  - 使用 `parseInt` 转换数字并且总是带上类型转换的基数。
 
     ```javascript
     var inputValue = '4';
@@ -1076,7 +1076,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     var val = parseInt(inputValue, 10);
     ```
 
-  - If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](http://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing.
+  - 如果因为某些原因 `parseInt` 成为你所做的事的瓶颈而需要使用位操作解决[性能问题](http://jsperf.com/coercion-vs-casting/3)时，留个注释说清楚原因和你的目的。
 
     ```javascript
     // good
@@ -1088,7 +1088,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     var val = inputValue >> 0;
     ```
 
-  - **Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](http://es5.github.io/#x4.3.19), but Bitshift operations always return a 32-bit integer ([source](http://es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109). Largest signed 32-bit Int is 2,147,483,647:
+  - **注：** 小心使用位操作运算符。数字会被当成 [64 位值](http://es5.github.io/#x4.3.19)，但是位操作运算符总是返回 32 位的整数（[source](http://es5.github.io/#x11.7)）。位操作处理大于 32 位的整数值时还会导致意料之外的行为。[讨论](https://github.com/airbnb/javascript/issues/109)。最大的 32 位整数是 2,147,483,647：
 
     ```javascript
     2147483647 >> 0 //=> 2147483647
@@ -1096,7 +1096,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     2147483649 >> 0 //=> -2147483647
     ```
 
-  - Booleans:
+  - 布尔:
 
     ```javascript
     var age = 0;
@@ -1114,9 +1114,9 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## Naming Conventions
+## 命名规则
 
-  - Avoid single letter names. Be descriptive with your naming.
+  - 避免单字幕命名。命名应具备描述性。
 
     ```javascript
     // bad
@@ -1130,7 +1130,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     }
     ```
 
-  - Use camelCase when naming objects, functions, and instances.
+  - 使用驼峰式命名对象、函数和实例。
 
     ```javascript
     // bad
@@ -1144,7 +1144,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     function thisIsMyFunction() {}
     ```
 
-  - Use PascalCase when naming constructors or classes.
+  - 使用帕斯卡式（所有单词首字母大写）命名构造函数或类。
 
     ```javascript
     // bad
@@ -1166,7 +1166,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     });
     ```
 
-  - Use a leading underscore `_` when naming private properties.
+  - 使用下划线 `_` 开头命名私有属性。
 
     ```javascript
     // bad
@@ -1177,7 +1177,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     this._firstName = 'Panda';
     ```
 
-  - When saving a reference to `this` use `_this`.
+  - 使用 `_this` 保存 `this` 的引用。
 
     ```javascript
     // bad
@@ -1205,7 +1205,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     }
     ```
 
-  - Name your functions. This is helpful for stack traces.
+  - 给函数命名。这在做堆栈轨迹时很有帮助。
 
     ```javascript
     // bad
@@ -1219,9 +1219,9 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     };
     ```
 
-  - **Note:** IE8 and below exhibit some quirks with named function expressions.  See [http://kangax.github.io/nfe/](http://kangax.github.io/nfe/) for more info.
+  - **注：** IE8 及以下版本对命名函数表达式的处理有些怪异。了解更多信息到 [http://kangax.github.io/nfe/](http://kangax.github.io/nfe/)。
 
-  - If your file exports a single class, your filename should be exactly the name of the class.
+  - 如果你的文件导出一个类，你的文件名应该与类名完全相同。
     ```javascript
     // file contents
     class CheckBox {
@@ -1243,10 +1243,10 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## Accessors
+## 存取器
 
-  - Accessor functions for properties are not required.
-  - If you do make accessor functions use getVal() and setVal('hello').
+  - 属性的存取函数不是必须的。
+  - 如果你需要存取函数时使用 `getVal()` 和 `setVal('hello')`。
 
     ```javascript
     // bad
@@ -1262,7 +1262,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     dragon.setAge(25);
     ```
 
-  - If the property is a boolean, use isVal() or hasVal().
+  - 如果属性是布尔值，使用 `isVal()` 或 `hasVal()`。
 
     ```javascript
     // bad
@@ -1276,7 +1276,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     }
     ```
 
-  - It's okay to create get() and set() functions, but be consistent.
+  - 创建 get() 和 set() 函数是可以的，但要保持一致。
 
     ```javascript
     function Jedi(options) {
@@ -1297,9 +1297,9 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## Constructors
+## 构造函数
 
-  - Assign methods to the prototype object, instead of overwriting the prototype with a new object. Overwriting the prototype makes inheritance impossible: by resetting the prototype you'll overwrite the base!
+  - 给对象原型分配方法，而不是使用一个新对象覆盖原型。覆盖原型将导致继承出现问题：重设原型将覆盖原有原型！
 
     ```javascript
     function Jedi() {
@@ -1327,7 +1327,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     };
     ```
 
-  - Methods can return `this` to help with method chaining.
+  - 方法可以返回 `this` 来实现方法链式使用。
 
     ```javascript
     // bad
@@ -1362,7 +1362,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     ```
 
 
-  - It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
+  - 写一个自定义的 `toString()` 方法是可以的，但是确保它可以正常工作且不会产生副作用。
 
     ```javascript
     function Jedi(options) {
@@ -1382,9 +1382,9 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## Events
+## 事件
 
-  - When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass a hash instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
+  - 当给时间附加数据时（无论是 DOM 事件还是私有事件），传入一个哈希而不是原始值。这样可以让后面的贡献者增加更多数据到事件数据而无需找出并更新事件的每一个处理器。例如，不好的写法：
 
     ```js
     // bad
@@ -1397,7 +1397,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     });
     ```
 
-    prefer:
+    更好的写法：
 
     ```js
     // good
@@ -1413,12 +1413,12 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
   **[⬆ 回到顶部](#table-of-contents)**
 
 
-## Modules
+## 模块
 
-  - The module should start with a `!`. This ensures that if a malformed module forgets to include a final semicolon there aren't errors in production when the scripts get concatenated. [Explanation](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
-  - The file should be named with camelCase, live in a folder with the same name, and match the name of the single export.
-  - Add a method called `noConflict()` that sets the exported module to the previous version and returns this one.
-  - Always declare `'use strict';` at the top of the module.
+  - 模块应该以 `!` 开始。这样确保了当一个不好的模块忘记包含最后的分号时，在合并代码到生产环境后不会产生错误。[详细说明](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
+  - 文件应该以驼峰式命名，并放在同名的文件夹里，且与导出的名字一致。
+  - 增加一个名为 `noConflict()` 的方法来设置导出的模块为前一个版本并返回它。
+  - 永远在模块顶部声明 `'use strict';`。
 
     ```javascript
     // fancyInput/fancyInput.js
@@ -1446,7 +1446,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 
 ## jQuery
 
-  - Prefix jQuery object variables with a `$`.
+  - 使用 `$` 作为存储 jQuery 对象的变量名前缀。
 
     ```javascript
     // bad
@@ -1456,7 +1456,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     var $sidebar = $('.sidebar');
     ```
 
-  - Cache jQuery lookups.
+  - 缓存 jQuery 查询。
 
     ```javascript
     // bad
@@ -1483,8 +1483,8 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     }
     ```
 
-  - For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
-  - Use `find` with scoped jQuery object queries.
+  - 对 DOM 查询使用层叠 `$('.sidebar ul')` 或 父元素 > 子元素 `$('.sidebar > ul')`。 [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
+  - 对有作用域的 jQuery 对象查询使用 `find`。
 
     ```javascript
     // bad
@@ -1506,14 +1506,14 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## ECMAScript 5 Compatibility
+## ECMAScript 5 兼容性
 
-  - Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](http://kangax.github.com/es5-compat-table/).
+  - 参考 [Kangax](https://twitter.com/kangax/) 的 ES5 [兼容表](http://kangax.github.com/es5-compat-table/).
 
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## Testing
+## 测试
 
   - **Yup.**
 
@@ -1526,7 +1526,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## Performance
+## 性能
 
   - [On Layout & Web Performance](http://kellegous.com/j/2013/01/26/layout-performance/)
   - [String vs Array Concat](http://jsperf.com/string-vs-array-concat/2)
@@ -1540,7 +1540,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## Resources
+## 相关资源
 
 
 **Read This**
