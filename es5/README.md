@@ -22,20 +22,20 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
   1. [文件类型](#type-casting--coercion)
   1. [命名规则](#naming-conventions)
   1. [存取器](#accessors)
-  1. [Constructors](#constructors)
-  1. [Events](#events)
-  1. [Modules](#modules)
+  1. [构造函数](#constructors)
+  1. [事件](#events)
+  1. [模块](#modules)
   1. [jQuery](#jquery)
-  1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
-  1. [Testing](#testing)
-  1. [Performance](#performance)
-  1. [Resources](#resources)
-  1. [In the Wild](#in-the-wild)
-  1. [Translation](#translation)
-  1. [The JavaScript Style Guide Guide](#the-javascript-style-guide-guide)
-  1. [Chat With Us About Javascript](#chat-with-us-about-javascript)
-  1. [Contributors](#contributors)
-  1. [License](#license)
+  1. [ECMAScript 5 兼容性](#ecmascript-5-compatibility)
+  1. [测试](#testing)
+  1. [性能](#performance)
+  1. [资源](#resources)
+  1. [谁在使用](#in-the-wild)
+  1. [翻译](#translation)
+  1. [JavaScript 风格指南说明](#the-javascript-style-guide-guide)
+  1. [与我们讨论 JavaScript](#chat-with-us-about-javascript)
+  1. [贡献者](#contributors)
+  1. [许可](#license)
 
 ## <a name="types">类型</a>
 
@@ -935,7 +935,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 
 **[⬆ 回到顶部](#table-of-contents)**
 
-## 逗号
+## <a name="commas">逗号</a>
 
   - 行首逗号: **不需要**。
 
@@ -1002,7 +1002,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## 分号
+## <a name="semicolons">分号</a>
 
   - **使用分号。**
 
@@ -1031,7 +1031,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## 类型转换
+## <a name="type-casting--coercion">类型转换</a>
 
   - 在语句开始时执行类型转换。
   - 字符串：
@@ -1114,7 +1114,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## 命名规则
+## <a name="naming-conventions">命名规则</a>
 
   - 避免单字幕命名。命名应具备描述性。
 
@@ -1243,7 +1243,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## 存取器
+## <a name="accessors">存取器</a>
 
   - 属性的存取函数不是必须的。
   - 如果你需要存取函数时使用 `getVal()` 和 `setVal('hello')`。
@@ -1297,7 +1297,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## 构造函数
+## <a name="constructors">构造函数</a>
 
   - 给对象原型分配方法，而不是使用一个新对象覆盖原型。覆盖原型将导致继承出现问题：重设原型将覆盖原有原型！
 
@@ -1382,7 +1382,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## 事件
+## <a name="events">事件</a>
 
   - 当给时间附加数据时（无论是 DOM 事件还是私有事件），传入一个哈希而不是原始值。这样可以让后面的贡献者增加更多数据到事件数据而无需找出并更新事件的每一个处理器。例如，不好的写法：
 
@@ -1413,7 +1413,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
   **[⬆ 回到顶部](#table-of-contents)**
 
 
-## 模块
+## <a name="modules">模块</a>
 
   - 模块应该以 `!` 开始。这样确保了当一个不好的模块忘记包含最后的分号时，在合并代码到生产环境后不会产生错误。[详细说明](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
   - 文件应该以驼峰式命名，并放在同名的文件夹里，且与导出的名字一致。
@@ -1444,7 +1444,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## jQuery
+## <a name="jquery">jQuery</a>
 
   - 使用 `$` 作为存储 jQuery 对象的变量名前缀。
 
@@ -1506,14 +1506,14 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## ECMAScript 5 兼容性
+## <a name="ecmascript-5-compatibility">ECMAScript 5 兼容性</a>
 
   - 参考 [Kangax](https://twitter.com/kangax/) 的 ES5 [兼容表](http://kangax.github.com/es5-compat-table/).
 
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## 测试
+## <a name="testing">测试</a>
 
   - **Yup.**
 
@@ -1526,7 +1526,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## 性能
+## <a name="performance">性能</a>
 
   - [On Layout & Web Performance](http://kellegous.com/j/2013/01/26/layout-performance/)
   - [String vs Array Concat](http://jsperf.com/string-vs-array-concat/2)
@@ -1540,7 +1540,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## 相关资源
+## <a name="resources">资源</a>
 
 
 **Read This**
@@ -1615,9 +1615,9 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 
 **[⬆ 回到顶部](#table-of-contents)**
 
-## In the Wild
+## <a name="in-the-wild">谁在使用</a>
 
-  This is a list of organizations that are using this style guide. Send us a pull request or open an issue and we'll add you to the list.
+  这是一个使用本风格指南的组织列表。给我们发 pull request 或开一个 issue 让我们将你增加到列表上。
 
   - **Aan Zee**: [AanZee/javascript](https://github.com/AanZee/javascript)
   - **Adult Swim**: [adult-swim/javascript](https://github.com/adult-swim/javascript)
@@ -1669,15 +1669,15 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
   - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
   - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
 
-## Translation
+## <a name="translation">翻译</a>
 
-  This style guide is also available in other languages:
+  这份风格指南也提供了其它语言的版本：
 
   - ![br](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Brazilian Portuguese**: [armoucar/javascript-style-guide](https://github.com/armoucar/javascript-style-guide)
   - ![bg](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Bulgaria.png) **Bulgarian**: [borislavvv/javascript](https://github.com/borislavvv/javascript)
   - ![ca](https://raw.githubusercontent.com/fpmweb/javascript-style-guide/master/img/catala.png) **Catalan**: [fpmweb/javascript-style-guide](https://github.com/fpmweb/javascript-style-guide)
   - ![tw](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Taiwan.png) **Chinese(Traditional)**: [jigsawye/javascript](https://github.com/jigsawye/javascript)
-  - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Chinese(Simplified)**: [adamlu/javascript-style-guide](https://github.com/adamlu/javascript-style-guide)
+  - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Chinese(Simplified)**: [sivan/javascript](https://github.com/sivan/javascript)
   - ![fr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/France.png) **French**: [nmussy/javascript-style-guide](https://github.com/nmussy/javascript-style-guide)
   - ![de](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Germany.png) **German**: [timofurrer/javascript-style-guide](https://github.com/timofurrer/javascript-style-guide)
   - ![it](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Italy.png) **Italian**: [sinkswim/javascript-style-guide](https://github.com/sinkswim/javascript-style-guide)
@@ -1688,20 +1688,20 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
   - ![es](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Spain.png) **Spanish**: [paolocarrasco/javascript-style-guide](https://github.com/paolocarrasco/javascript-style-guide)
   - ![th](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Thailand.png) **Thai**: [lvarayut/javascript-style-guide](https://github.com/lvarayut/javascript-style-guide)
 
-## The JavaScript Style Guide Guide
+## <a name="the-javascript-style-guide-guide">JavaScript 风格指南说明</a>
 
   - [Reference](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
 
-## Chat With Us About JavaScript
+## <a name="chat-with-us-about-javascript">与我们讨论 JavaScript</a>
 
   - Find us on [gitter](https://gitter.im/airbnb/javascript).
 
-## Contributors
+## <a name="contributors">贡献者</a>
 
   - [View Contributors](https://github.com/airbnb/javascript/graphs/contributors)
 
 
-## License
+## <a name="license">License</a>
 
 (The MIT License)
 
