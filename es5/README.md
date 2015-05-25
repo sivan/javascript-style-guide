@@ -1,7 +1,6 @@
-# Airbnb JavaScript Style Guide() {
+# Airbnb JavaScript Style Guide() {  
 
-Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascript/)。  
-\* 翻译的为 ES5 版。
+*用更合理的方式写 JavaScript*
 
 ## <a name="table-of-contents">目录</a>
 
@@ -39,7 +38,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 
 ## <a name="types">类型</a>
 
-  - **原始值**: 存取直接作用于它自身。-
+  - **原始值**: 存取直接作用于它自身。
 
     + `string`
     + `number`
@@ -55,7 +54,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 
     console.log(foo, bar); // => 1, 9
     ```
-  - **复杂类型**: 存取时作用于它自身值的引用。-
+  - **复杂类型**: 存取时作用于它自身值的引用。
 
     + `object`
     + `array`
@@ -281,7 +280,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     ```
 
   - 永远不要在一个非函数代码块（if、while 等）中声明一个函数，把那个函数赋给一个变量。浏览器允许你这么做，但它们的解析表现不一致。
-  - **注：** ECMA-262 把 `块` 定义为一组语句。函数声明不是语句。[阅读对 ECMA-262 这个问题的说明](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97). -
+  - **注：** ECMA-262 把 `块` 定义为一组语句。函数声明不是语句。[阅读对 ECMA-262 这个问题的说明](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97)。
 
     ```javascript
     // bad
