@@ -3,7 +3,7 @@
 Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascript/)。  
 \* 翻译的为 ES5 版。
 
-## 目录
+## <a name="table-of-contents">目录</a>
 
   1. [类型](#types)
   1. [对象](#objects)
@@ -1701,7 +1701,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
   - [View Contributors](https://github.com/airbnb/javascript/graphs/contributors)
 
 
-## <a name="license">License</a>
+## <a name="license">许可</a>
 
 (The MIT License)
 
