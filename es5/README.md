@@ -191,7 +191,7 @@
     var fullName = 'Bob ' + this.lastName;
     ```
 
-  - 超过 80 个字符的字符串应该使用连接符写成多行。-
+  - 超过 80 个字符的字符串应该使用连接符写成多行。
   - 注：若过渡使用，通过连接符连接的长字符串可能会影响性能。[jsPerf](http://jsperf.com/ya-string-concat) & [讨论](https://github.com/airbnb/javascript/issues/40).
 
     ```javascript
@@ -1542,31 +1542,31 @@
 ## <a name="resources">资源</a>
 
 
-**Read This**
+**推荐阅读**
 
   - [Annotated ECMAScript 5.1](http://es5.github.com/)
 
-**Tools**
+**工具**
 
   - Code Style Linters
     + [JSHint](http://www.jshint.com/) - [Airbnb Style .jshintrc](https://github.com/airbnb/javascript/blob/master/linters/jshintrc)
     + [JSCS](https://github.com/jscs-dev/node-jscs) - [Airbnb Style Preset](https://github.com/jscs-dev/node-jscs/blob/master/presets/airbnb.json)
 
-**Other Styleguides**
+**其它风格指南**
 
   - [Google JavaScript Style Guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
   - [jQuery Core Style Guidelines](http://docs.jquery.com/JQuery_Core_Style_Guidelines)
   - [Principles of Writing Consistent, Idiomatic JavaScript](https://github.com/rwldrn/idiomatic.js/)
   - [JavaScript Standard Style](https://github.com/feross/standard)
 
-**Other Styles**
+**其它风格**
 
   - [Naming this in nested functions](https://gist.github.com/4135065) - Christian Johansen
   - [Conditional Callbacks](https://github.com/airbnb/javascript/issues/52) - Ross Allen
   - [Popular JavaScript Coding Conventions on Github](http://sideeffect.kr/popularconvention/#javascript) - JeongHoon Byun
   - [Multiple var statements in JavaScript, not superfluous](http://benalman.com/news/2012/05/multiple-var-statements-javascript/) - Ben Alman
 
-**Further Reading**
+**进一步阅读**
 
   - [Understanding JavaScript Closures](http://javascriptweblog.wordpress.com/2010/10/25/understanding-javascript-closures/) - Angus Croll
   - [Basic JavaScript for the impatient programmer](http://www.2ality.com/2013/06/basic-javascript.html) - Dr. Axel Rauschmayer
@@ -1574,7 +1574,7 @@
   - [ES6 Features](https://github.com/lukehoban/es6features) - Luke Hoban
   - [Frontend Guidelines](https://github.com/bendc/frontend-guidelines) - Benjamin De Cock
 
-**Books**
+**书籍**
 
   - [JavaScript: The Good Parts](http://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742) - Douglas Crockford
   - [JavaScript Patterns](http://www.amazon.com/JavaScript-Patterns-Stoyan-Stefanov/dp/0596806752) - Stoyan Stefanov
@@ -1593,7 +1593,7 @@
   - [Eloquent JavaScript](http://eloquentjavascript.net) - Marijn Haverbeke
   - [You Don't Know JS](https://github.com/getify/You-Dont-Know-JS) - Kyle Simpson
 
-**Blogs**
+**博客**
 
   - [DailyJS](http://dailyjs.com/)
   - [JavaScript Weekly](http://javascriptweekly.com/)
@@ -1607,7 +1607,7 @@
   - [Dustin Diaz](http://dustindiaz.com/)
   - [nettuts](http://net.tutsplus.com/?s=javascript)
 
-**Podcasts**
+**播客**
 
   - [JavaScript Jabber](http://devchat.tv/js-jabber/)
 
