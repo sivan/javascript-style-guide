@@ -5,17 +5,17 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 
 ## 目录
 
-  1. [Types](#types)
-  1. [Objects](#objects)
-  1. [Arrays](#arrays)
-  1. [Strings](#strings)
-  1. [Functions](#functions)
-  1. [Properties](#properties)
-  1. [Variables](#variables)
-  1. [Hoisting](#hoisting)
-  1. [Comparison Operators & Equality](#comparison-operators--equality)
-  1. [Blocks](#blocks)
-  1. [Comments](#comments)
+  1. [类型](#types)
+  1. [对象](#objects)
+  1. [数字](#arrays)
+  1. [字符串](#strings)
+  1. [函数](#functions)
+  1. [属性](#properties)
+  1. [变量](#variables)
+  1. [提升](#hoisting)
+  1. [比较运算符 & 等号](#comparison-operators--equality)
+  1. [块](#blocks)
+  1. [注释](#comments)
   1. [Whitespace](#whitespace)
   1. [Commas](#commas)
   1. [Semicolons](#semicolons)
@@ -37,9 +37,9 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
   1. [Contributors](#contributors)
   1. [License](#license)
 
-## Types
+## 类型
 
-  - **Primitives**: When you access a primitive type you work directly on its value.
+  - **原始值**: 存取直接作用于它自身。-
 
     + `string`
     + `number`
@@ -55,7 +55,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 
     console.log(foo, bar); // => 1, 9
     ```
-  - **Complex**: When you access a complex type you work on a reference to its value.
+  - **复杂类型**: 存取时作用于它自身值的引用。-
 
     + `object`
     + `array`
@@ -70,11 +70,11 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     console.log(foo[0], bar[0]); // => 9, 9
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到顶部](#table-of-contents)**
 
-## Objects
+## 对象
 
-  - Use the literal syntax for object creation.
+  - 使用直接量创建对象。
 
     ```javascript
     // bad
@@ -84,7 +84,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     var item = {};
     ```
 
-  - Don't use [reserved words](http://es5.github.io/#x7.6.1) as keys. It won't work in IE8. [More info](https://github.com/airbnb/javascript/issues/61).
+  - 不要使用[保留字](http://es5.github.io/#x7.6.1)作为键名，它们在 IE8 下不工作。[更多信息](https://github.com/airbnb/javascript/issues/61)。
 
     ```javascript
     // bad
@@ -100,7 +100,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     };
     ```
 
-  - Use readable synonyms in place of reserved words.
+  - 使用同义词替换需要使用的保留字。
 
     ```javascript
     // bad
@@ -119,11 +119,11 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     };
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到顶部](#table-of-contents)**
 
-## Arrays
+## 数组
 
-  - Use the literal syntax for array creation.
+  - 使用直接量创建数组。
 
     ```javascript
     // bad
@@ -133,7 +133,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     var items = [];
     ```
 
-  - Use Array#push instead of direct assignment to add items to an array.
+  - 向数组增加元素时使用 Array#push 来替代直接赋值。
 
     ```javascript
     var someStack = [];
@@ -146,7 +146,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     someStack.push('abracadabra');
     ```
 
-  - When you need to copy an array use Array#slice. [jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
+  - 当你需要拷贝数组时，使用 Array#slice。[jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
 
     ```javascript
     var len = items.length;
@@ -162,7 +162,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     itemsCopy = items.slice();
     ```
 
-  - To convert an array-like object to an array, use Array#slice.
+  - 使用 Array#slice 将类数组对象转换成数组。
 
     ```javascript
     function trigger() {
@@ -171,12 +171,12 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到顶部](#table-of-contents)**
 
 
-## Strings
+## 字符串
 
-  - Use single quotes `''` for strings.
+  - 使用单引号 `''` 包裹字符串。
 
     ```javascript
     // bad
@@ -192,8 +192,8 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     var fullName = 'Bob ' + this.lastName;
     ```
 
-  - Strings longer than 80 characters should be written across multiple lines using string concatenation.
-  - Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40).
+  - 超过 80 个字符的字符串应该使用连接符写成多行。-
+  - 注：若过渡使用，通过连接符连接的长字符串可能会影响性能。[jsPerf](http://jsperf.com/ya-string-concat) & [讨论](https://github.com/airbnb/javascript/issues/40).
 
     ```javascript
     // bad
@@ -211,7 +211,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
       'with this, you would get nowhere fast.';
     ```
 
-  - When programmatically building up a string, use Array#join instead of string concatenation. Mostly for IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
+  - 程序化生成的字符串使用 Array#join 连接而不是使用连接符。尤其是 IE 下：[jsPerf](http://jsperf.com/string-vs-array-concat/2).
 
     ```javascript
     var items;
@@ -256,32 +256,32 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到顶部](#table-of-contents)**
 
 
-## Functions
+## 函数
 
-  - Function expressions:
+  - 函数表达式：
 
     ```javascript
-    // anonymous function expression
+    // 匿名函数表达式
     var anonymous = function() {
       return true;
     };
 
-    // named function expression
+    // 命名函数表达式
     var named = function named() {
       return true;
     };
 
-    // immediately-invoked function expression (IIFE)
+    // 立即调用的函数表达式（IIFE）
     (function() {
       console.log('Welcome to the Internet. Please follow me.');
     })();
     ```
 
-  - Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
-  - **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
+  - 永远不要在一个非函数代码块（if、while 等）中声明一个函数，把那个函数赋给一个变量。浏览器允许你这么做，但它们的解析表现不一致。
+  - **注：** ECMA-262 把 `块` 定义为一组语句。函数声明不是语句。[阅读对 ECMA-262 这个问题的说明](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97). -
 
     ```javascript
     // bad
@@ -300,7 +300,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     }
     ```
 
-  - Never name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
+  - 永远不要把参数命名为 `arguments`。这将取代函数作用域内的 `arguments` 对象。
 
     ```javascript
     // bad
@@ -314,13 +314,13 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到顶部](#table-of-contents)**
 
 
 
-## Properties
+## 属性
 
-  - Use dot notation when accessing properties.
+  - 使用 `.` 来访问对象的属性。
 
     ```javascript
     var luke = {
@@ -335,7 +335,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     var isJedi = luke.jedi;
     ```
 
-  - Use subscript notation `[]` when accessing properties with a variable.
+  - 当通过变量访问属性时使用中括号 `[]`。
 
     ```javascript
     var luke = {
@@ -350,12 +350,12 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     var isJedi = getProp('jedi');
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到顶部](#table-of-contents)**
 
 
-## Variables
+## 变量
 
-  - Always use `var` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
+  - 总是使用 `var` 来声明变量。不这么做将导致产生全局变量。我们要避免污染全局命名空间。
 
     ```javascript
     // bad
@@ -365,10 +365,8 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     var superPower = new SuperPower();
     ```
 
-  - Use one `var` declaration per variable.
-    It's easier to add new variable declarations this way, and you never have
-    to worry about swapping out a `;` for a `,` or introducing punctuation-only
-    diffs.
+  - 使用 `var` 声明每一个变量。
+    这样做的好处是增加新变量将变的更加容易，而且你永远不用再担心调换错 `;` 跟 `,`。
 
     ```javascript
     // bad
@@ -377,7 +375,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
         dragonball = 'z';
 
     // bad
-    // (compare to above, and try to spot the mistake)
+    // （跟上面的代码比较一下，看看哪里错了）
     var items = getItems(),
         goSportsTeam = true;
         dragonball = 'z';
@@ -388,7 +386,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     var dragonball = 'z';
     ```
 
-  - Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
+  - 最后再声明未赋值的变量。当你需要引用前面的变量赋值时这将变的很有用。
 
     ```javascript
     // bad
@@ -411,7 +409,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     var i;
     ```
 
-  - Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
+  - 在作用域顶部声明变量。这将帮你避免变量声明提升相关的问题。
 
     ```javascript
     // bad
@@ -446,7 +444,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
       return name;
     }
 
-    // bad - unnessary function call
+    // bad - 不必要的函数调用
     function() {
       var name = getName();
 
@@ -474,32 +472,27 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到顶部](#table-of-contents)**
 
 
-## Hoisting
+## 提升
 
-  - Variable declarations get hoisted to the top of their scope, but their assignment does not.
+  - 变量声明会提升至作用域顶部，但赋值不会。
 
     ```javascript
-    // we know this wouldn't work (assuming there
-    // is no notDefined global variable)
+    // 我们知道这样不能正常工作（假设这里没有名为 notDefined 的全局变量）
     function example() {
       console.log(notDefined); // => throws a ReferenceError
     }
 
-    // creating a variable declaration after you
-    // reference the variable will work due to
-    // variable hoisting. Note: the assignment
-    // value of `true` is not hoisted.
+    // 但由于变量声明提升的原因，在一个变量引用后再创建它的变量声明将可以正常工作。
+    // 注：变量赋值为 `true` 不会提升。
     function example() {
       console.log(declaredButNotAssigned); // => undefined
       var declaredButNotAssigned = true;
     }
 
-    // The interpreter is hoisting the variable
-    // declaration to the top of the scope,
-    // which means our example could be rewritten as:
+    // 解释器会把变量声明提升到作用域顶部，意味着我们的例子将被重写成：
     function example() {
       var declaredButNotAssigned;
       console.log(declaredButNotAssigned); // => undefined
@@ -507,7 +500,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     }
     ```
 
-  - Anonymous function expressions hoist their variable name, but not the function assignment.
+  - 匿名函数表达式会提升它们的变量名，但不会提升函数的赋值。
 
     ```javascript
     function example() {
@@ -521,7 +514,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     }
     ```
 
-  - Named function expressions hoist the variable name, not the function name or the function body.
+  - 命名函数表达式会提升变量名，但不会提升函数名或函数体。
 
     ```javascript
     function example() {
@@ -536,8 +529,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
       };
     }
 
-    // the same is true when the function name
-    // is the same as the variable name.
+    // 当函数名跟变量名一样时，表现也是如此。
     function example() {
       console.log(named); // => undefined
 
@@ -549,7 +541,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     }
     ```
 
-  - Function declarations hoist their name and the function body.
+  - 函数声明提升它们的名字和函数体。
 
     ```javascript
     function example() {
@@ -561,32 +553,32 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     }
     ```
 
-  - For more information refer to [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](http://www.adequatelygood.com/).
+  - 了解更多信息在 [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](http://www.adequatelygood.com/).
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到顶部](#table-of-contents)**
 
 
 
-## Comparison Operators & Equality
+## 比较运算符 & 等号
 
-  - Use `===` and `!==` over `==` and `!=`.
-  - Conditional statements such as the `if` statement evaulate their expression using coercion with the `ToBoolean` abstract method and always follow these simple rules:
+  - 优先使用 `===` 和 `!==` 而不是 `==` 和 `!=`.
+  - 条件表达式例如 `if` 语句通过抽象方法 `ToBoolean` 强制计算它们的表达式并且总是遵守下面的规则：
 
-    + **Objects** evaluate to **true**
-    + **Undefined** evaluates to **false**
-    + **Null** evaluates to **false**
-    + **Booleans** evaluate to **the value of the boolean**
-    + **Numbers** evaluate to **false** if **+0, -0, or NaN**, otherwise **true**
-    + **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
+    + **对象** 被计算为 **true**
+    + **Undefined** 被计算为 **false**
+    + **Null** 被计算为 **false**
+    + **布尔值** 被计算为 **布尔的值**
+    + **数字** 如果是 **+0、-0 或 NaN** 被计算为 **false**，否则为 **true**
+    + **字符串** 如果是空字符串 `''` 被计算为 **false**，否则为 **true**
 
     ```javascript
     if ([0]) {
       // true
-      // An array is an object, objects evaluate to true
+      // 一个数组就是一个对象，对象被计算为 true
     }
     ```
 
-  - Use shortcuts.
+  - 使用快捷方式。
 
     ```javascript
     // bad
@@ -610,14 +602,14 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     }
     ```
 
-  - For more information see [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
+  - 了解更多信息在 [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到顶部](#table-of-contents)**
 
 
-## Blocks
+## 块
 
-  - Use braces with all multi-line blocks.
+  - 使用大括号包裹所有的多行代码块。
 
     ```javascript
     // bad
@@ -641,8 +633,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     }
     ```
 
-  - If you're using multi-line blocks with `if` and `else`, put `else` on the same line as your
-    `if` block's closing brace.
+  - 如果通过 `if` 和 `else` 使用多行代码块，把 `else` 放在 `if` 代码块关闭括号的同一行。
 
     ```javascript
     // bad
@@ -664,12 +655,12 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     ```
 
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到顶部](#table-of-contents)**
 
 
-## Comments
+## 注释
 
-  - Use `/** ... */` for multi-line comments. Include a description, specify types and values for all parameters and return values.
+  - 使用 `/** ... */` 作为多行注释。包含描述、指定所有参数和返回值的类型和值。
 
     ```javascript
     // bad
@@ -701,7 +692,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     }
     ```
 
-  - Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment.
+  - 使用 `//` 作为单行注释。在评论对象上面另起一行使用单行注释。在注释前插入空行。
 
     ```javascript
     // bad
@@ -731,9 +722,9 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     }
     ```
 
-  - Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME -- need to figure this out` or `TODO -- need to implement`.
+  - 给注释增加 `FIXME` 或 `TODO` 的前缀可以帮助其他开发者快速了解这是一个需要复查的问题，或是给需要处理的问题提供一个解决方式。这将有别于常见的注释，因为它们是可操作的。使用 `FIXME -- need to figure this out` 或者 `TODO -- need to implement`。
 
-  - Use `// FIXME:` to annotate problems.
+  - 使用 `// FIXME:` 标注问题。
 
     ```javascript
     function Calculator() {
@@ -745,7 +736,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     }
     ```
 
-  - Use `// TODO:` to annotate solutions to problems.
+  - 使用 `// TODO:` 标注问题的解决方式。
 
     ```javascript
     function Calculator() {
@@ -757,12 +748,12 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到顶部](#table-of-contents)**
 
 
-## Whitespace
+## 空白
 
-  - Use soft tabs set to 2 spaces.
+  - 使用 2 个空格作为缩进。
 
     ```javascript
     // bad
@@ -781,7 +772,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     }
     ```
 
-  - Place 1 space before the leading brace.
+  - 在大括号前放一个空格。
 
     ```javascript
     // bad
@@ -807,7 +798,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     });
     ```
 
-  - Place 1 space before the opening parenthesis in control statements (`if`, `while` etc.). Place no space before the argument list in function calls and declarations.
+  - 在控制语句（`if`、`while` 等）的小括号前放一个空格。在函数调用及声明中，不在函数的参数列表前加空格。
 
     ```javascript
     // bad
@@ -831,7 +822,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     }
     ```
 
-  - Set off operators with spaces.
+  - 使用空格把运算符隔开。
 
     ```javascript
     // bad
@@ -841,7 +832,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     var x = y + 5;
     ```
 
-  - End files with a single newline character.
+  - 在文件末尾插入一个空行。
 
     ```javascript
     // bad
@@ -865,8 +856,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     })(this);↵
     ```
 
-  - Use indentation when making long method chains. Use a leading dot, which
-    emphasizes that the line is a method call, not a new statement.
+  - 在使用长方法链时进行缩进。使用前面的点 `.` 强调这是方法调用而不是新语句。
 
     ```javascript
     // bad
@@ -905,7 +895,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
         .call(tron.led);
     ```
 
-  - Leave a blank line after blocks and before the next statement
+  - 在块末和新语句前插入空行。
 
     ```javascript
     // bad
@@ -943,7 +933,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     ```
 
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到顶部](#table-of-contents)**
 
 ## Commas
 
@@ -1009,7 +999,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     ];
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到顶部](#table-of-contents)**
 
 
 ## Semicolons
@@ -1038,7 +1028,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
 
     [Read more](http://stackoverflow.com/a/7365214/1712802).
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到顶部](#table-of-contents)**
 
 
 ## Type Casting & Coercion
@@ -1121,7 +1111,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     var hasAge = !!age;
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到顶部](#table-of-contents)**
 
 
 ## Naming Conventions
@@ -1250,7 +1240,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     var CheckBox = require('./CheckBox');
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到顶部](#table-of-contents)**
 
 
 ## Accessors
@@ -1304,7 +1294,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     };
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到顶部](#table-of-contents)**
 
 
 ## Constructors
@@ -1389,7 +1379,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     };
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到顶部](#table-of-contents)**
 
 
 ## Events
@@ -1420,7 +1410,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     });
     ```
 
-  **[⬆ back to top](#table-of-contents)**
+  **[⬆ 回到顶部](#table-of-contents)**
 
 
 ## Modules
@@ -1451,7 +1441,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     }(this);
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到顶部](#table-of-contents)**
 
 
 ## jQuery
@@ -1513,14 +1503,14 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     $sidebar.find('ul').hide();
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到顶部](#table-of-contents)**
 
 
 ## ECMAScript 5 Compatibility
 
   - Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](http://kangax.github.com/es5-compat-table/).
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到顶部](#table-of-contents)**
 
 
 ## Testing
@@ -1533,7 +1523,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到顶部](#table-of-contents)**
 
 
 ## Performance
@@ -1547,7 +1537,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
   - [Long String Concatenation](http://jsperf.com/ya-string-concat)
   - Loading...
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到顶部](#table-of-contents)**
 
 
 ## Resources
@@ -1623,7 +1613,7 @@ Airbnb JavaScript 代码规范，[英文版](https://github.com/airbnb/javascrip
   - [JavaScript Jabber](http://devchat.tv/js-jabber/)
 
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到顶部](#table-of-contents)**
 
 ## In the Wild
 
@@ -1736,6 +1726,6 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 回到顶部](#table-of-contents)**
 
 # };
