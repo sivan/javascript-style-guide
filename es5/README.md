@@ -1051,7 +1051,7 @@
     var totalScore = this.reviewScore + ' total score';
     ```
 
-  - 使用 `parseInt` 转换数字并且总是带上类型转换的基数。
+  - 使用 `parseInt` 转换数字时总是带上类型转换的基数。
 
     ```javascript
     var inputValue = '4';
@@ -1115,7 +1115,7 @@
 
 ## <a name="naming-conventions">命名规则</a>
 
-  - 避免单字幕命名。命名应具备描述性。
+  - 避免单字母命名。命名应具备描述性。
 
     ```javascript
     // bad
@@ -1143,7 +1143,7 @@
     function thisIsMyFunction() {}
     ```
 
-  - 使用帕斯卡式（所有单词首字母大写）命名构造函数或类。
+  - 使用帕斯卡式命名构造函数或类。
 
     ```javascript
     // bad
