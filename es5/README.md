@@ -192,7 +192,7 @@
     ```
 
   - 超过 80 个字符的字符串应该使用连接符写成多行。
-  - 注：若过渡使用，通过连接符连接的长字符串可能会影响性能。[jsPerf](http://jsperf.com/ya-string-concat) & [讨论](https://github.com/airbnb/javascript/issues/40).
+  - 注：若过度使用，通过连接符连接的长字符串可能会影响性能。[jsPerf](http://jsperf.com/ya-string-concat) & [讨论](https://github.com/airbnb/javascript/issues/40).
 
     ```javascript
     // bad
