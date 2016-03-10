@@ -18,7 +18,7 @@
   1. [空白](#whitespace)
   1. [逗号](#commas)
   1. [分号](#semicolons)
-  1. [强制类型转化](#type-casting--coercion)
+  1. [类型转化](#type-casting--coercion)
   1. [命名规则](#naming-conventions)
   1. [存取器](#accessors)
   1. [构造函数](#constructors)
