@@ -4,4 +4,4 @@
 
 [《Airbnb JavaScript Style Guide 中文版》](es5/README.md)  
 
-翻译自[Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)，另有 [ES6 版](https://github.com/yuche/javascript)。
+翻译自[Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)，ES2015 版翻译进行中。
