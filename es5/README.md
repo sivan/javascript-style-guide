@@ -191,7 +191,7 @@
     var fullName = 'Bob ' + this.lastName;
     ```
 
-  - 超过 80 个字符的字符串应该使用连接符写成多行。
+  - 超过 100 个字符的字符串应该使用连接符写成多行。
   - 注：若过度使用，通过连接符连接的长字符串可能会影响性能。[jsPerf](http://jsperf.com/ya-string-concat) & [讨论](https://github.com/airbnb/javascript/issues/40).
 
     ```javascript
@@ -1621,7 +1621,6 @@
   - **Aan Zee**: [AanZee/javascript](https://github.com/AanZee/javascript)
   - **Adult Swim**: [adult-swim/javascript](https://github.com/adult-swim/javascript)
   - **Airbnb**: [airbnb/javascript](https://github.com/airbnb/javascript)
-  - **American Insitutes for Research**: [AIRAST/javascript](https://github.com/AIRAST/javascript)
   - **Apartmint**: [apartmint/javascript](https://github.com/apartmint/javascript)
   - **Avalara**: [avalara/javascript](https://github.com/avalara/javascript)
   - **Billabong**: [billabong/javascript](https://github.com/billabong/javascript)
@@ -1662,7 +1661,6 @@
   - **Target**: [target/javascript](https://github.com/target/javascript)
   - **TheLadders**: [TheLadders/javascript](https://github.com/TheLadders/javascript)
   - **T4R Technology**: [T4R-Technology/javascript](https://github.com/T4R-Technology/javascript)
-  - **Userify**: [userify/javascript](https://github.com/userify/javascript)
   - **VoxFeed**: [VoxFeed/javascript-style-guide](https://github.com/VoxFeed/javascript-style-guide)
   - **Weggo**: [Weggo/javascript](https://github.com/Weggo/javascript)
   - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
