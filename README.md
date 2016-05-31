@@ -6,4 +6,4 @@
 
 翻译自[Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)，另有 [ES6 版](https://github.com/yuche/javascript)。
 
-另 [Airbnb React/JSX Style Guild 中文版](https://github.com/JasonBoy/javascript/tree/master/react)。
+另 [Airbnb React/JSX Style Guide 中文版](https://github.com/JasonBoy/javascript/tree/master/react)。
