@@ -2,9 +2,9 @@
 
 *用更合理的方式写 JavaScript*
 
-重新翻译了最常用的 ES5 版并同步更新英文版改动。
+## [《Airbnb JavaScript Style Guide 中文版》](es5/README.md)
 
-[→→《Airbnb JavaScript Style Guide 中文版》←←](es5/README.md)
+重新翻译了最常用的 ES5 版，同步更新英文版改动。
 
 ---
 
