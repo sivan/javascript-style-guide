@@ -274,9 +274,9 @@
     };
 
     // 立即调用的函数表达式（IIFE）
-    (function() {
+    (function () {
       console.log('Welcome to the Internet. Please follow me.');
-    })();
+    }());
     ```
 
   - 永远不要在一个非函数代码块（if、while 等）中声明一个函数，把那个函数赋给一个变量。浏览器允许你这么做，但它们的解析表现不一致。
@@ -412,7 +412,7 @@
 
     ```javascript
     // bad
-    function() {
+    function () {
       test();
       console.log('doing stuff..');
 
@@ -428,7 +428,7 @@
     }
 
     // good
-    function() {
+    function () {
       var name = getName();
 
       test();
@@ -444,7 +444,7 @@
     }
 
     // bad - 不必要的函数调用
-    function() {
+    function () {
       var name = getName();
 
       if (!arguments.length) {
@@ -457,7 +457,7 @@
     }
 
     // good
-    function() {
+    function () {
       var name;
 
       if (!arguments.length) {
@@ -507,7 +507,7 @@
 
       anonymous(); // => TypeError anonymous is not a function
 
-      var anonymous = function() {
+      var anonymous = function () {
         console.log('anonymous function expression');
       };
     }
@@ -624,10 +624,10 @@
     }
 
     // bad
-    function() { return false; }
+    function () { return false; }
 
     // good
-    function() {
+    function () {
       return false;
     }
     ```
@@ -756,17 +756,17 @@
 
     ```javascript
     // bad
-    function() {
+    function () {
     ∙∙∙∙var name;
     }
 
     // bad
-    function() {
+    function () {
     ∙var name;
     }
 
     // good
-    function() {
+    function () {
     ∙∙var name;
     }
     ```
@@ -835,14 +835,14 @@
 
     ```javascript
     // bad
-    (function(global) {
+    (function (global) {
       // ...stuff...
     })(this);
     ```
 
     ```javascript
     // bad
-    (function(global) {
+    (function (global) {
       // ...stuff...
     })(this);↵
     ↵
@@ -850,7 +850,7 @@
 
     ```javascript
     // good
-    (function(global) {
+    (function (global) {
       // ...stuff...
     })(this);↵
     ```
@@ -912,19 +912,19 @@
 
     // bad
     var obj = {
-      foo: function() {
+      foo: function () {
       },
-      bar: function() {
+      bar: function () {
       }
     };
     return obj;
 
     // good
     var obj = {
-      foo: function() {
+      foo: function () {
       },
 
-      bar: function() {
+      bar: function () {
       }
     };
 
@@ -1007,19 +1007,19 @@
 
     ```javascript
     // bad
-    (function() {
+    (function () {
       var name = 'Skywalker'
       return name
     })()
 
     // good
-    (function() {
+    (function () {
       var name = 'Skywalker';
       return name;
     })();
 
     // good (防止函数在两个 IIFE 合并时被当成一个参数
-    ;(function() {
+    ;(function () {
       var name = 'Skywalker';
       return name;
     })();
@@ -1180,25 +1180,25 @@
 
     ```javascript
     // bad
-    function() {
+    function () {
       var self = this;
-      return function() {
+      return function () {
         console.log(self);
       };
     }
 
     // bad
-    function() {
+    function () {
       var that = this;
-      return function() {
+      return function () {
         console.log(that);
       };
     }
 
     // good
-    function() {
+    function () {
       var _this = this;
-      return function() {
+      return function () {
         console.log(_this);
       };
     }
@@ -1208,7 +1208,7 @@
 
     ```javascript
     // bad
-    var log = function(msg) {
+    var log = function (msg) {
       console.log(msg);
     };
 
@@ -1284,11 +1284,11 @@
       this.set('lightsaber', lightsaber);
     }
 
-    Jedi.prototype.set = function(key, val) {
+    Jedi.prototype.set = function set(key, val) {
       this[key] = val;
     };
 
-    Jedi.prototype.get = function(key) {
+    Jedi.prototype.get = function get(key) {
       return this[key];
     };
     ```
@@ -1330,12 +1330,12 @@
 
     ```javascript
     // bad
-    Jedi.prototype.jump = function() {
+    Jedi.prototype.jump = function jump() {
       this.jumping = true;
       return true;
     };
 
-    Jedi.prototype.setHeight = function(height) {
+    Jedi.prototype.setHeight = function setHeight(height) {
       this.height = height;
     };
 
@@ -1344,12 +1344,12 @@
     luke.setHeight(20); // => undefined
 
     // good
-    Jedi.prototype.jump = function() {
+    Jedi.prototype.jump = function jump() {
       this.jumping = true;
       return this;
     };
 
-    Jedi.prototype.setHeight = function(height) {
+    Jedi.prototype.setHeight = function setHeight(height) {
       this.height = height;
       return this;
     };
@@ -1391,7 +1391,7 @@
 
     ...
 
-    $(this).on('listingUpdated', function(e, listingId) {
+    $(this).on('listingUpdated', function (e, listingId) {
       // do something with listingId
     });
     ```
@@ -1404,7 +1404,7 @@
 
     ...
 
-    $(this).on('listingUpdated', function(e, data) {
+    $(this).on('listingUpdated', function (e, data) {
       // do something with data.listingId
     });
     ```
@@ -1422,7 +1422,7 @@
     ```javascript
     // fancyInput/fancyInput.js
 
-    !function(global) {
+    !function (global) {
       'use strict';
 
       var previousFancyInput = global.FancyInput;
@@ -1517,7 +1517,7 @@
   - **Yup.**
 
     ```javascript
-    function() {
+    function () {
       return true;
     }
     ```
@@ -1659,6 +1659,7 @@
   - **Shutterfly**: [shutterfly/javascript](https://github.com/shutterfly/javascript)
   - **StudentSphere**: [studentsphere/javascript](https://github.com/studentsphere/javascript)
   - **Super**: [SuperJobs/javascript](https://github.com/SuperJobs/javascript)
+  - **SysGarage**: [sysgarage/javascript-style-guide](https://github.com/sysgarage/javascript-style-guide)
   - **Target**: [target/javascript](https://github.com/target/javascript)
   - **TheLadders**: [TheLadders/javascript](https://github.com/TheLadders/javascript)
   - **T4R Technology**: [T4R-Technology/javascript](https://github.com/T4R-Technology/javascript)
