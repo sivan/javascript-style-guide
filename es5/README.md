@@ -83,7 +83,7 @@
     var item = {};
     ```
 
-  - 不要使用[保留字](http://es5.github.io/#x7.6.1)作为键名，它们在 IE8 下不工作。[更多信息](https://github.com/airbnb/javascript/issues/61)。
+  - 不要使用[保留字](http://es5.github.io/#x7.6.1)作为键名，它们在 IE8 下不会工作。[更多信息](https://github.com/airbnb/javascript/issues/61)。
 
     ```javascript
     // bad
@@ -99,7 +99,7 @@
     };
     ```
 
-  - 使用同义词替换需要使用的保留字。
+  - 使用可读性强的同义词替换需要使用的保留字。
 
     ```javascript
     // bad
