@@ -6,17 +6,17 @@
 
 译者注：  
 本篇为 ES2015/ES6 版 Airbnb JavaScript 风格规范。你可能需要搭配 [Babel](http://babeljs.io/) 来使用。  
-我也翻译了本风格规范的 [ES5 版](es5/)，适用于国内常见 Web 前端开发环境。
+我也翻译了 Airbnb JavaScript 风格规范的 [ES5 版](es5/)，适用于国内常见 Web 前端开发环境。
 
 ## <a name="table-of-contents">目录</a>
 
   1. [类型](#types)
   1. [引用](#references)
   1. [对象](#objects)
-  1. [Arrays](#arrays)
-  1. [Destructuring](#destructuring)
-  1. [Strings](#strings)
-  1. [Functions](#functions)
+  1. [数组](#arrays)
+  1. [解构](#destructuring)
+  1. [字符串](#strings)
+  1. [函数](#functions)
   1. [Arrow Functions](#arrow-functions)
   1. [Classes & Constructors](#classes--constructors)
   1. [Modules](#modules)
@@ -26,7 +26,7 @@
   1. [Hoisting](#hoisting)
   1. [Comparison Operators & Equality](#comparison-operators--equality)
   1. [Blocks](#blocks)
-  1. [Comments](#comments)
+  1. [Comments](#comments)本
   1. [Whitespace](#whitespace)
   1. [Commas](#commas)
   1. [Semicolons](#semicolons)
@@ -327,10 +327,10 @@
 
 **[⬆ 回到顶部](#table-of-contents)**
 
-## Arrays
+## <a name="arrays">数组</a>
 
   <a name="arrays--literals"></a><a name="4.1"></a>
-  - [4.1](#arrays--literals) Use the literal syntax for array creation. eslint: [`no-array-constructor`](http://eslint.org/docs/rules/no-array-constructor.html)
+  - [4.1](#arrays--literals) 使用直接量创建数组。eslint: [`no-array-constructor`](http://eslint.org/docs/rules/no-array-constructor.html)
 
     ```javascript
     // bad
@@ -341,7 +341,7 @@
     ```
 
   <a name="arrays--push"></a><a name="4.2"></a>
-  - [4.2](#arrays--push) Use [Array#push](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push) instead of direct assignment to add items to an array.
+  - [4.2](#arrays--push) 向数组增加元素时使用 [Array#push](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push) 替代直接赋值。
 
     ```javascript
     const someStack = [];
@@ -354,7 +354,7 @@
     ```
 
   <a name="es6-array-spreads"></a><a name="4.3"></a>
-  - [4.3](#es6-array-spreads) Use array spreads `...` to copy arrays.
+  - [4.3](#es6-array-spreads) 使用数组展开 `...` 来拷贝数组。
 
     ```javascript
     // bad
@@ -371,7 +371,7 @@
     ```
 
   <a name="arrays--from"></a><a name="4.4"></a>
-  - [4.4](#arrays--from) To convert an array-like object to an array, use [Array.from](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
+  - [4.4](#arrays--from) 使用 [Array.from](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from) 将类数组对象转换成数组。
 
     ```javascript
     const foo = document.querySelectorAll('.foo');
@@ -379,7 +379,7 @@
     ```
 
   <a name="arrays--callback-return"></a><a name="4.5"></a>
-  - [4.5](#arrays--callback-return) Use return statements in array method callbacks. It's ok to omit the return if the function body consists of a single statement following [8.2](#8.2). eslint: [`array-callback-return`](http://eslint.org/docs/rules/array-callback-return)
+  - [4.5](#arrays--callback-return) 在数组方法回调中使用返回语句。如果函数体遵守 [8.2](#8.2) 的写法只包含一段语句则可以省略返回。eslint: [`array-callback-return`](http://eslint.org/docs/rules/array-callback-return)
 
     ```javascript
     // good
@@ -429,12 +429,12 @@
 
 **[⬆ 回到顶部](#table-of-contents)**
 
-## Destructuring
+## <a name="destructuring">解构</a>
 
   <a name="destructuring--object"></a><a name="5.1"></a>
-  - [5.1](#destructuring--object) Use object destructuring when accessing and using multiple properties of an object. jscs: [`requireObjectDestructuring`](http://jscs.info/rule/requireObjectDestructuring)
+  - [5.1](#destructuring--object) 在访问和使用一个对象的多个属性时使用对象解构。jscs: [`requireObjectDestructuring`](http://jscs.info/rule/requireObjectDestructuring)
 
-    > Why? Destructuring saves you from creating temporary references for those properties.
+    > 为什么？解构可以让你免于创建这些属性的临时引用。
 
     ```javascript
     // bad
@@ -458,7 +458,7 @@
     ```
 
   <a name="destructuring--array"></a><a name="5.2"></a>
-  - [5.2](#destructuring--array) Use array destructuring. jscs: [`requireArrayDestructuring`](http://jscs.info/rule/requireArrayDestructuring)
+  - [5.2](#destructuring--array) 使用数组解构。jscs: [`requireArrayDestructuring`](http://jscs.info/rule/requireArrayDestructuring)
 
     ```javascript
     const arr = [1, 2, 3, 4];
@@ -472,9 +472,9 @@
     ```
 
   <a name="destructuring--object-over-array"></a><a name="5.3"></a>
-  - [5.3](#destructuring--object-over-array) Use object destructuring for multiple return values, not array destructuring. jscs: [`disallowArrayDestructuringReturn`](http://jscs.info/rule/disallowArrayDestructuringReturn)
+  - [5.3](#destructuring--object-over-array) 处理多个返回值时使用对象解构而不是数组解构。jscs: [`disallowArrayDestructuringReturn`](http://jscs.info/rule/disallowArrayDestructuringReturn)
 
-    > Why? You can add new properties over time or change the order of things without breaking call sites.
+    > 为什么？你可以随着时间的推移不断向里增加新属性或在不破坏调用位置的前提下改变次序。
 
     ```javascript
     // bad
@@ -483,7 +483,7 @@
       return [left, right, top, bottom];
     }
 
-    // the caller needs to think about the order of return data
+    // 调用时需要考虑返回数据的顺序
     const [left, __, top] = processInput(input);
 
     // good
@@ -492,17 +492,17 @@
       return { left, right, top, bottom };
     }
 
-    // the caller selects only the data they need
+    // 只选择需要的数据调用
     const { left, top } = processInput(input);
     ```
 
 
 **[⬆ 回到顶部](#table-of-contents)**
 
-## Strings
+## <a name="strings">字符串</a>
 
   <a name="strings--quotes"></a><a name="6.1"></a>
-  - [6.1](#strings--quotes) Use single quotes `''` for strings. eslint: [`quotes`](http://eslint.org/docs/rules/quotes.html) jscs: [`validateQuoteMarks`](http://jscs.info/rule/validateQuoteMarks)
+  - [6.1](#strings--quotes) 使用单引号 `''` 包裹字符串。eslint: [`quotes`](http://eslint.org/docs/rules/quotes.html) jscs: [`validateQuoteMarks`](http://jscs.info/rule/validateQuoteMarks)
 
     ```javascript
     // bad
@@ -513,10 +513,10 @@
     ```
 
   <a name="strings--line-length"></a><a name="6.2"></a>
-  - [6.2](#strings--line-length) Strings that cause the line to go over 100 characters should be written across multiple lines using string concatenation.
+  - [6.2](#strings--line-length) 超过 100 个字符的字符串应该使用连接符写成多行。
 
   <a name="strings--concat-perf"></a><a name="6.3"></a>
-  - [6.3](#strings--concat-perf) Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40).
+  - [6.3](#strings--concat-perf) 注：若过度使用，通过连接符连接的长字符串会影响性能。[jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40).
 
     ```javascript
     // bad
@@ -535,9 +535,9 @@
     ```
 
   <a name="es6-template-literals"></a><a name="6.4"></a>
-  - [6.4](#es6-template-literals) When programmatically building up strings, use template strings instead of concatenation. eslint: [`prefer-template`](http://eslint.org/docs/rules/prefer-template.html) [`template-curly-spacing`](http://eslint.org/docs/rules/template-curly-spacing) jscs: [`requireTemplateStrings`](http://jscs.info/rule/requireTemplateStrings)
+  - [6.4](#es6-template-literals) 程序化生成的字符串时使用模板字符串替代串联。eslint: [`prefer-template`](http://eslint.org/docs/rules/prefer-template.html) [`template-curly-spacing`](http://eslint.org/docs/rules/template-curly-spacing) jscs: [`requireTemplateStrings`](http://jscs.info/rule/requireTemplateStrings)
 
-    > Why? Template strings give you a readable, concise syntax with proper newlines and string interpolation features.
+    > 为什么？模板字符串提供了可读并简洁的语法以及正确的换行符和字符串插值特性。
 
     ```javascript
     // bad
@@ -562,12 +562,12 @@
     ```
 
   <a name="strings--eval"></a><a name="6.5"></a>
-  - [6.5](#strings--eval) Never use `eval()` on a string, it opens too many vulnerabilities.
+  - [6.5](#strings--eval) 永远不要在字符串上使用 `eval()`，它开启了太多漏洞。
 
   <a name="strings--escaping"></a>
-  - [6.6](#strings--escaping) Do not unnecessarily escape characters in strings. eslint: [`no-useless-escape`](http://eslint.org/docs/rules/no-useless-escape)
+  - [6.6](#strings--escaping) 不要在字符串中没理由的使用转义符。eslint: [`no-useless-escape`](http://eslint.org/docs/rules/no-useless-escape)
 
-    > Why? Backslashes harm readability, thus they should only be present when necessary.
+    > 为什么？反斜线破坏可读性，所以它们只应当在必要时存在。
 
     ```javascript
     // bad
@@ -581,12 +581,12 @@
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## Functions
+## <a name="functions">函数</a>
 
   <a name="functions--declarations"></a><a name="7.1"></a>
-  - [7.1](#functions--declarations) Use function declarations instead of function expressions. jscs: [`requireFunctionDeclarations`](http://jscs.info/rule/requireFunctionDeclarations)
+  - [7.1](#functions--declarations) 使用函数声明替代函数表达式。jscs: [`requireFunctionDeclarations`](http://jscs.info/rule/requireFunctionDeclarations)
 
-    > Why? Function declarations are named, so they're easier to identify in call stacks. Also, the whole body of a function declaration is hoisted, whereas only the reference of a function expression is hoisted. This rule makes it possible to always use [Arrow Functions](#arrow-functions) in place of function expressions.
+    > 为什么？函数声明是被命名的，所以他们在调用栈中更容易被识别。此外，函数声明体自身会被提升（hoisted），而函数表达式只有它的引用会被提升。这条规则使得永远使用[箭头函数](#arrow-functions)替代函数表达式成为可能。
 
     ```javascript
     // bad
@@ -599,22 +599,22 @@
     ```
 
   <a name="functions--iife"></a><a name="7.2"></a>
-  - [7.2](#functions--iife) Wrap immediately invoked function expressions in parentheses. eslint: [`wrap-iife`](http://eslint.org/docs/rules/wrap-iife.html) jscs: [`requireParenthesesAroundIIFE`](http://jscs.info/rule/requireParenthesesAroundIIFE)
+  - [7.2](#functions--iife) 使用圆括号包括立即调用函数表达式。eslint: [`wrap-iife`](http://eslint.org/docs/rules/wrap-iife.html) jscs: [`requireParenthesesAroundIIFE`](http://jscs.info/rule/requireParenthesesAroundIIFE)
 
-    > Why? An immediately invoked function expression is a single unit - wrapping both it, and its invocation parens, in parens, cleanly expresses this. Note that in a world with modules everywhere, you almost never need an IIFE.
+    > 为什么？一个立即调用函数表达式是一个独立单元 —— 用圆括号将它自身和调用括号包裹在一起来明确表达这一点。注意在一个模块的世界，你几乎永远都不需要立即调用函数。
 
     ```javascript
-    // immediately-invoked function expression (IIFE)
+    // 立即调用函数表达式（IIFE）
     (function () {
       console.log('Welcome to the Internet. Please follow me.');
     }());
     ```
 
   <a name="functions--in-blocks"></a><a name="7.3"></a>
-  - [7.3](#functions--in-blocks) Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears. eslint: [`no-loop-func`](http://eslint.org/docs/rules/no-loop-func.html)
+  - [7.3](#functions--in-blocks) 永远不要在非函数代码块（if、while 等）中声明一个函数。通过把函数赋值给一个变量来替代它。虽然浏览器允许这么做，但它们的解析表现不一致。eslint: [`no-loop-func`](http://eslint.org/docs/rules/no-loop-func.html)
 
   <a name="functions--note-on-blocks"></a><a name="7.4"></a>
-  - [7.4](#functions--note-on-blocks) **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
+  - [7.4](#functions--note-on-blocks) **注：** ECMA-262 把 `块` 定义为一组语句。函数声明不是语句。[阅读对 ECMA-262 这个问题的说明](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97)。
 
     ```javascript
     // bad
@@ -634,7 +634,7 @@
     ```
 
   <a name="functions--arguments-shadow"></a><a name="7.5"></a>
-  - [7.5](#functions--arguments-shadow) Never name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
+  - [7.5](#functions--arguments-shadow) 永远不要把参数命名为 `arguments`。这将取代函数作用域内的 `arguments` 对象。
 
     ```javascript
     // bad
@@ -649,9 +649,9 @@
     ```
 
   <a name="es6-rest"></a><a name="7.6"></a>
-  - [7.6](#es6-rest) Never use `arguments`, opt to use rest syntax `...` instead. eslint: [`prefer-rest-params`](http://eslint.org/docs/rules/prefer-rest-params)
+  - [7.6](#es6-rest) 永远不要使用 `arguments`，使用剩余参数语法 `...` 来替代。eslint: [`prefer-rest-params`](http://eslint.org/docs/rules/prefer-rest-params)
 
-    > Why? `...` is explicit about which arguments you want pulled. Plus, rest arguments are a real Array, and not merely Array-like like `arguments`.
+    > 为什么？`...` 明确说明了你想传入的参数。此外，剩余参数是真正的数组，而不像 `arguments` 仅仅是类数组。
 
     ```javascript
     // bad
@@ -667,14 +667,13 @@
     ```
 
   <a name="es6-default-parameters"></a><a name="7.7"></a>
-  - [7.7](#es6-default-parameters) Use default parameter syntax rather than mutating function arguments.
+  - [7.7](#es6-default-parameters) 使用默认参数值语法而不是转变函数参数。
 
     ```javascript
     // really bad
     function handleThings(opts) {
-      // No! We shouldn't mutate function arguments.
-      // Double bad: if opts is falsy it'll be set to an object which may
-      // be what you want but it can introduce subtle bugs.
+      // 错！我们不应该变动函数参数。
+      // 再错：如果参数 opts 为否值，它将被设为一个你想要对象，但这将带来隐性 bug。
       opts = opts || {};
       // ...
     }
@@ -694,9 +693,9 @@
     ```
 
   <a name="functions--default-side-effects"></a><a name="7.8"></a>
-  - [7.8](#functions--default-side-effects) Avoid side effects with default parameters.
+  - [7.8](#functions--default-side-effects) 避免采用默认参数时的副作用。
 
-    > Why? They are confusing to reason about.
+    > 为什么？它们难以理解。
 
     ```javascript
     var b = 1;
@@ -711,7 +710,7 @@
     ```
 
   <a name="functions--defaults-last"></a><a name="7.9"></a>
-  - [7.9](#functions--defaults-last) Always put default parameters last.
+  - [7.9](#functions--defaults-last) 永远把默认参数放到最后。
 
     ```javascript
     // bad
@@ -726,9 +725,9 @@
     ```
 
   <a name="functions--constructor"></a><a name="7.10"></a>
-  - [7.10](#functions--constructor) Never use the Function constructor to create a new function.
+  - [7.10](#functions--constructor) 永远不要使用函数构造器创建新函数。
 
-    > Why? Creating a function in this way evaluates a string similarly to eval(), which opens vulnerabilities.
+    > 为什么？通过这种方式创建的函数在处理字符串时会像 eval() 一样开启漏洞。
 
     ```javascript
     // bad
@@ -739,9 +738,9 @@
     ```
 
   <a name="functions--signature-spacing"></a><a name="7.11"></a>
-  - [7.11](#functions--signature-spacing) Spacing in a function signature.
+  - [7.11](#functions--signature-spacing) 在函数标识中添加空格。
 
-    > Why? Consistency is good, and you shouldn’t have to add or remove a space when adding or removing a name.
+    > 为什么？保持一致性是好的，而且你不需要在增加或删除函数名是增减空格。
 
     ```javascript
     // bad
@@ -755,9 +754,9 @@
     ```
 
   <a name="functions--mutate-params"></a><a name="7.12"></a>
-  - [7.12](#functions--mutate-params) Never mutate parameters. eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
+  - [7.12](#functions--mutate-params) 永远不要转变参数。eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
 
-    > Why? Manipulating objects passed in as parameters can cause unwanted variable side effects in the original caller.
+    > 为什么？操作以参数传入的对象会在原始调用处引起不期望的副作用。
 
     ```javascript
     // bad
@@ -772,9 +771,9 @@
     ```
 
   <a name="functions--reassign-params"></a><a name="7.13"></a>
-  - [7.13](#functions--reassign-params) Never reassign parameters. eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
+  - [7.13](#functions--reassign-params) 永远不要给参数重新赋值。eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
 
-    > Why? Reassigning parameters can lead to unexpected behavior, especially when accessing the `arguments` object. It can also cause optimization issues, especially in V8.
+    > 为什么？给参数重新赋值会导致预料外的行为，尤其是访问 `arguments` 对象时。同时它会引起优化问题，尤其在 V8 里。
 
     ```javascript
     // bad
