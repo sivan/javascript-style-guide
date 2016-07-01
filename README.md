@@ -4,7 +4,7 @@
 
 *用更合理的方式写 JavaScript*
 
-译者注：  
+译注：  
 本篇为 ES2015/ES6 版 Airbnb JavaScript 风格规范。你可能需要搭配 [Babel](http://babeljs.io/) 来使用。  
 我也翻译了 Airbnb JavaScript 风格规范的 [ES5 版](es5/)，适用于国内常见 Web 前端开发环境。
 
@@ -26,7 +26,7 @@
   1. [Hoisting](#hoisting)
   1. [Comparison Operators & Equality](#comparison-operators--equality)
   1. [Blocks](#blocks)
-  1. [Comments](#comments)本
+  1. [Comments](#comments)
   1. [Whitespace](#whitespace)
   1. [Commas](#commas)
   1. [Semicolons](#semicolons)
