@@ -705,7 +705,7 @@
     function getType() {
       console.log('fetching type...');
       // set the default type to 'no type'
-      var type = this._type || 'no type';
+      var type = this.type || 'no type';
 
       return type;
     }
@@ -715,7 +715,7 @@
       console.log('fetching type...');
 
       // set the default type to 'no type'
-      var type = this._type || 'no type';
+      var type = this.type || 'no type';
 
       return type;
     }
@@ -1165,18 +1165,21 @@
     });
     ```
 
-  - 使用下划线 `_` 开头命名私有属性。
+  - 不要使用下划线前/后缀。
+
+  > 为什么？JavaScript 并没有私有属性或私有方法的概念。虽然使用下划线是表示「私有」的一种共识，但实际上这些属性是完全公开的，它本身就是你公共接口的一部分。这种习惯或许会导致开发者错误的认为改动它不会造成破坏或者不需要去测试。长话短说：如果你想要某处为「私有」，它必须不能是显式提出的。
 
     ```javascript
     // bad
     this.__firstName__ = 'Panda';
     this.firstName_ = 'Panda';
+    this._firstName = 'Panda';
 
     // good
-    this._firstName = 'Panda';
+    this.firstName = 'Panda';
     ```
 
-  - 使用 `_this` 保存 `this` 的引用。
+  - 不要保存 `this` 的引用。使用 Function#bind。
 
     ```javascript
     // bad
@@ -1195,12 +1198,19 @@
       };
     }
 
-    // good
+    // bad
     function () {
       var _this = this;
       return function () {
         console.log(_this);
       };
+    }
+
+    // good
+    function () {
+      return function () {
+        console.log(this);
+      }.bind(this);
     }
     ```
 
