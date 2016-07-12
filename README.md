@@ -287,7 +287,7 @@
   <a name="objects--quoted-props"></a><a name="3.8"></a>
   - [3.8](#objects--quoted-props) 仅在属性名为非法标识符时使用引号包裹。eslint: [`quote-props`](http://eslint.org/docs/rules/quote-props.html) jscs: [`disallowQuotedKeysInObjects`](http://jscs.info/rule/disallowQuotedKeysInObjects)
 
-  > 为什么？通常我们认为这样写主观上更容易阅读。它改善了语法高亮并且更容易被多数 JS 引擎优化。
+  > 为什么？通常我们认为这样写主观上更容易阅读。这样做改善了语法高亮并且更容易被多数 JS 引擎优化。
 
   ```javascript
   // bad
@@ -773,7 +773,7 @@
   <a name="functions--reassign-params"></a><a name="7.13"></a>
   - [7.13](#functions--reassign-params) 永远不要给参数重新赋值。eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
 
-    > 为什么？给参数重新赋值会导致预料外的行为，尤其是访问 `arguments` 对象时。同时它会引起优化问题，尤其在 V8 里。
+    > 为什么？给参数重新赋值会导致预料外的行为，尤其是访问 `arguments` 对象时。同时这会引起优化问题，尤其在 V8 下。
 
     ```javascript
     // bad
@@ -919,12 +919,12 @@
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## Classes & Constructors
+## 类与构造方法
 
   <a name="constructors--use-class"></a><a name="9.1"></a>
-  - [9.1](#constructors--use-class) Always use `class`. Avoid manipulating `prototype` directly.
+  - [9.1](#constructors--use-class) 总是使用 `class`。避免直接操作 `prototype`。
 
-    > Why? `class` syntax is more concise and easier to reason about.
+    > 为什么？使用 `class` 语法更简洁易读。
 
     ```javascript
     // bad
@@ -952,9 +952,9 @@
     ```
 
   <a name="constructors--extends"></a><a name="9.2"></a>
-  - [9.2](#constructors--extends) Use `extends` for inheritance.
+  - [9.2](#constructors--extends) 使用 `extends` 来继承。
 
-    > Why? It is a built-in way to inherit prototype functionality without breaking `instanceof`.
+    > 为什么？这是内置的继承原型方法的方式，而且不会破坏 `instanceof`。
 
     ```javascript
     // bad
@@ -976,7 +976,7 @@
     ```
 
   <a name="constructors--chaining"></a><a name="9.3"></a>
-  - [9.3](#constructors--chaining) Methods can return `this` to help with method chaining.
+  - [9.3](#constructors--chaining) 方法能返回 `this` 可以帮助实现方法链接。
 
     ```javascript
     // bad
@@ -1014,7 +1014,7 @@
 
 
   <a name="constructors--tostring"></a><a name="9.4"></a>
-  - [9.4](#constructors--tostring) It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
+  - [9.4](#constructors--tostring) 自己写一个 toString() 方法是可以的，只要能确保它可以正常工作并且没有副作用就行。
 
     ```javascript
     class Jedi {
@@ -1033,7 +1033,7 @@
     ```
 
   <a name="constructors--no-useless"></a><a name="9.5"></a>
-  - [9.5](#constructors--no-useless) Classes have a default constructor if one is not specified. An empty constructor function or one that just delegates to a parent class is unnecessary. eslint: [`no-useless-constructor`](http://eslint.org/docs/rules/no-useless-constructor)
+  - [9.5](#constructors--no-useless) 类在没有特别指定的情况下会有一个默认的构造函数。没有必要使用一个空的构造函数或者委托给父级类。eslint: [`no-useless-constructor`](http://eslint.org/docs/rules/no-useless-constructor)
 
     ```javascript
     // bad
@@ -1062,9 +1062,9 @@
     ```
 
   <a name="classes--no-duplicate-members"></a>
-  - [9.6](#classes--no-duplicate-members) Avoid duplicate class members. eslint: [`no-dupe-class-members`](http://eslint.org/docs/rules/no-dupe-class-members)
+  - [9.6](#classes--no-duplicate-members) 避免拷贝类成员。eslint: [`no-dupe-class-members`](http://eslint.org/docs/rules/no-dupe-class-members)
 
-    > Why? Duplicate class member declarations will silently prefer the last one - having duplicates is almost certainly a bug.
+    > 为什么？拷贝类成员声明将默认采用最后一个——拥有多个拷贝毫无疑问算得上是一个 bug。
 
     ```javascript
     // bad
