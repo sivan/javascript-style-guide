@@ -1,5 +1,3 @@
-
-
 # Airbnb JavaScript Style Guide() {
 
 *用更合理的方式写 JavaScript*
@@ -18,7 +16,7 @@
   1. [字符串](#strings)
   1. [函数](#functions)
   1. [箭头函数](#arrow-functions)
-  1. [Classes & Constructors](#classes--constructors)
+  1. [类与构造函数](#classes--constructors)
   1. [Modules](#modules)
   1. [Iterators and Generators](#iterators-and-generators)
   1. [Properties](#properties)
@@ -919,7 +917,7 @@
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## 类与构造方法
+## <a name="classes--constructors">类与构造函数</a>
 
   <a name="constructors--use-class"></a><a name="9.1"></a>
   - [9.1](#constructors--use-class) 总是使用 `class`。避免直接操作 `prototype`。
