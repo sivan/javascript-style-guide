@@ -584,7 +584,7 @@
   <a name="functions--declarations"></a><a name="7.1"></a>
   - [7.1](#functions--declarations) 使用函数声明替代函数表达式。jscs: [`requireFunctionDeclarations`](http://jscs.info/rule/requireFunctionDeclarations)
 
-    > 为什么？函数声明是被命名的，所以他们在调用栈中更容易被识别。此外，函数声明体自身会被提升（hoisted），而函数表达式只有它的引用会被提升。这条规则使得永远使用[箭头函数](#arrow-functions)替代函数表达式成为可能。
+    > 为什么？函数声明是被命名的，所以他们在调用栈中更容易被识别。此外，函数声明体自身会被提升（hoisted），而函数表达式只有它的引用会被提升。这条规则使得总是使用[箭头函数](#arrow-functions)替代函数表达式成为可能。
 
     ```javascript
     // bad
@@ -708,7 +708,7 @@
     ```
 
   <a name="functions--defaults-last"></a><a name="7.9"></a>
-  - [7.9](#functions--defaults-last) 永远把默认参数放到最后。
+  - [7.9](#functions--defaults-last) 总是把默认参数放到最后。
 
     ```javascript
     // bad
@@ -1086,12 +1086,12 @@
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## Modules
+## <a name="modules">模块</a>
 
   <a name="modules--use-them"></a><a name="10.1"></a>
-  - [10.1](#modules--use-them) Always use modules (`import`/`export`) over a non-standard module system. You can always transpile to your preferred module system.
+  - [10.1](#modules--use-them) 总是使用 ES6 模块（`import`/`export`）优先于非标准的模块系统。你可以编译到你喜欢的模块系统。
 
-    > Why? Modules are the future, let's start using the future now.
+    > 为什么？ES6 模块是未来，让我现在就开始使用它。
 
     ```javascript
     // bad
@@ -1108,9 +1108,9 @@
     ```
 
   <a name="modules--no-wildcard"></a><a name="10.2"></a>
-  - [10.2](#modules--no-wildcard) Do not use wildcard imports.
+  - [10.2](#modules--no-wildcard) 不要使用通配符导入。
 
-    > Why? This makes sure you have a single default export.
+    > 为什么？这样确保你有一个默认的输出。
 
     ```javascript
     // bad
@@ -1121,9 +1121,9 @@
     ```
 
   <a name="modules--no-export-from-import"></a><a name="10.3"></a>
-  - [10.3](#modules--no-export-from-import) And do not export directly from an import.
+  - [10.3](#modules--no-export-from-import) 不要从导入模块的地方直接导出。
 
-    > Why? Although the one-liner is concise, having one clear way to import and one clear way to export makes things consistent.
+    > 为什么？尽管单行写法很简洁，但是用明确的方式导入和导出模块更能保持一致性。
 
     ```javascript
     // bad
@@ -1137,9 +1137,8 @@
     ```
 
   <a name="modules--no-duplicate-imports"></a>
-  - [10.4](#modules--no-duplicate-imports) Only import from a path in one place.
- eslint: [`no-duplicate-imports`](http://eslint.org/docs/rules/no-duplicate-imports)
-    > Why? Having multiple lines that import from the same path can make code harder to maintain.
+  - [10.4](#modules--no-duplicate-imports) 在同一个位置引用模块时只导入一次。eslint: [`no-duplicate-imports`](http://eslint.org/docs/rules/no-duplicate-imports)
+    > 为什么？使用多行导入同一个位置的模块会让代码难以维护。
 
     ```javascript
     // bad
@@ -1158,9 +1157,8 @@
     ```
 
   <a name="modules--no-mutable-exports"></a>
-  - [10.5](#modules--no-mutable-exports) Do not export mutable bindings.
- eslint: [`import/no-mutable-exports`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-mutable-exports.md)
-    > Why? Mutation should be avoided in general, but in particular when exporting mutable bindings. While this technique may be needed for some special cases, in general, only constant references should be exported.
+  - [10.5](#modules--no-mutable-exports) 不要导出可变的变量绑定。eslint: [`import/no-mutable-exports`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-mutable-exports.md)
+    > 为什么？可变的导出通常应该避免，除非有意要导出可变的变量绑定。虽然这种方法可能在某些特殊情况下需要，但通常还是要确保只导出常量引用。（这段翻译的不好：Why? Mutation should be avoided in general, but in particular when exporting mutable bindings. While this technique may be needed for some special cases, in general, only constant references should be exported.）
 
     ```javascript
     // bad
@@ -1173,7 +1171,7 @@
     ```
 
   <a name="modules--prefer-default-export"></a>
-  - [10.6](#modules--prefer-default-export) In modules with a single export, prefer default export over named export.
+  - [10.6](#modules--prefer-default-export) 只包含一个导出的模块，应优先使用默认导出而不是命名导出。
  eslint: [`import/prefer-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md)
 
     ```javascript
@@ -1185,9 +1183,8 @@
     ```
 
   <a name="modules--imports-first"></a>
-  - [10.7](#modules--imports-first) Put all `import`s above non-import statements.
- eslint: [`import/imports-first`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/imports-first.md)
-    > Why? Since `import`s are hoisted, keeping them all at the top prevents surprising behavior.
+  - [10.7](#modules--imports-first) 把所有 `import` 放到非导入语句上面。eslint: [`import/imports-first`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/imports-first.md)
+    > 为什么？由于 `import` 会被提升，所以保持它们在顶部以防止意外行为发生。
 
     ```javascript
     // bad
