@@ -17,10 +17,10 @@
   1. [函数](#functions)
   1. [箭头函数](#arrow-functions)
   1. [类与构造函数](#classes--constructors)
-  1. [Modules](#modules)
-  1. [Iterators and Generators](#iterators-and-generators)
-  1. [Properties](#properties)
-  1. [Variables](#variables)
+  1. [模块](#modules)
+  1. [迭代器和生成器](#iterators-and-generators)
+  1. [属性](#properties)
+  1. [变量](#variables)
   1. [Hoisting](#hoisting)
   1. [Comparison Operators & Equality](#comparison-operators--equality)
   1. [Blocks](#blocks)
@@ -1184,7 +1184,7 @@
 
   <a name="modules--imports-first"></a>
   - [10.7](#modules--imports-first) 把所有 `import` 放到非导入语句上面。eslint: [`import/imports-first`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/imports-first.md)
-    > 为什么？由于 `import` 会被提升，所以保持它们在顶部以防止意外行为发生。
+    > 为什么？由于 `import` 会被声明提升，所以保持它们在顶部以防止意外行为发生。
 
     ```javascript
     // bad
@@ -1202,12 +1202,12 @@
 
 **[⬆ 回到顶部](#table-of-contents)**
 
-## Iterators and Generators
+## <a name="iterators-and-generators">迭代器和生成器</a>
 
   <a name="iterators--nope"></a><a name="11.1"></a>
-  - [11.1](#iterators--nope) Don't use iterators. Prefer JavaScript's higher-order functions like `map()` and `reduce()` instead of loops like `for-of`. eslint: [`no-iterator`](http://eslint.org/docs/rules/no-iterator.html)
+  - [11.1](#iterators--nope) 不要使用迭代器。优先使用 JavaScript 的高阶函数，例如使用 `map()` 和 `reduce()` 来替代 `for-of` 循环。eslint: [`no-iterator`](http://eslint.org/docs/rules/no-iterator.html)
 
-    > Why? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side effects.
+    > 为什么？这样强化了我们不可改变的规则。比起副作用，处理带返回值的纯函数更容易理解。
 
     ```javascript
     const numbers = [1, 2, 3, 4, 5];
@@ -1231,14 +1231,14 @@
     ```
 
   <a name="generators--nope"></a><a name="11.2"></a>
-  - [11.2](#generators--nope) Don't use generators for now.
+  - [11.2](#generators--nope) 现在先不要使用生成器。
 
-    > Why? They don't transpile well to ES5.
+    > 为什么？他们还不能很好的编译到 ES5。
 
   <a name="generators--spacing"></a>
-  - [11.3](#generators--spacing) If you must use generators, or if you disregard [our advice](#generators--nope), make sure their function signature is spaced properly. eslint: [`generator-star-spacing`](http://eslint.org/docs/rules/generator-star-spacing)
+  - [11.3](#generators--spacing) 如果你必须使用生成器，或者你不在乎[我们的建议](#generators--nope)，确保他们的函数声明里正确的使用了空格。eslint: [`generator-star-spacing`](http://eslint.org/docs/rules/generator-star-spacing)
 
-    > Why? `function` and `*` are part of the same conceptual keyword - `*` is not a modifier for `function`, `function*` is a unique construct, different from `function`.
+    > 为什么？`function` 和 `*` 是同一概念的关键词的一部分—— `*` 不是 `function` 的修饰符号，`function*` 是一种独立的结构，与 `function` 不同。
 
     ```js
     // bad
@@ -1282,10 +1282,10 @@
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## Properties
+## <a name="properties">属性</a>
 
   <a name="properties--dot"></a><a name="12.1"></a>
-  - [12.1](#properties--dot) Use dot notation when accessing properties. eslint: [`dot-notation`](http://eslint.org/docs/rules/dot-notation.html) jscs: [`requireDotNotation`](http://jscs.info/rule/requireDotNotation)
+  - [12.1](#properties--dot) 使用点标记来访问对象的属性。eslint: [`dot-notation`](http://eslint.org/docs/rules/dot-notation.html) jscs: [`requireDotNotation`](http://jscs.info/rule/requireDotNotation)
 
     ```javascript
     const luke = {
@@ -1301,7 +1301,7 @@
     ```
 
   <a name="properties--bracket"></a><a name="12.2"></a>
-  - [12.2](#properties--bracket) Use bracket notation `[]` when accessing properties with a variable.
+  - [12.2](#properties--bracket) 使用中括号标记 `[]` 访问带变量的属性。
 
     ```javascript
     const luke = {
@@ -1319,10 +1319,10 @@
 **[⬆ 回到顶部](#table-of-contents)**
 
 
-## Variables
+## <a name="variables">变量</a>
 
   <a name="variables--const"></a><a name="13.1"></a>
-  - [13.1](#variables--const) Always use `const` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
+  - [13.1](#variables--const) 总是使用 `const` 声明变量。不这么做将导致产生全局变量。我们要避免污染全局命名空间。地球队长警告过我们这个。
 
     ```javascript
     // bad
@@ -1333,9 +1333,9 @@
     ```
 
   <a name="variables--one-const"></a><a name="13.2"></a>
-  - [13.2](#variables--one-const) Use one `const` declaration per variable. eslint: [`one-var`](http://eslint.org/docs/rules/one-var.html) jscs: [`disallowMultipleVarDecl`](http://jscs.info/rule/disallowMultipleVarDecl)
+  - [13.2](#variables--one-const) 使用 `const` 声明每一个变量。eslint: [`one-var`](http://eslint.org/docs/rules/one-var.html) jscs: [`disallowMultipleVarDecl`](http://jscs.info/rule/disallowMultipleVarDecl)
 
-    > Why? It's easier to add new variable declarations this way, and you never have to worry about swapping out a `;` for a `,` or introducing punctuation-only diffs. You can also step through each declaration with the debugger, instead of jumping through all of them at once.
+    > 为什么？这样做更容易增加新变量，而且你永远不用再担心调换错 `;` 跟 `,` 或者引入标点符号差异。你也能够逐行调试每个声明而不是每次全改一遍。
 
     ```javascript
     // bad
@@ -1356,9 +1356,9 @@
     ```
 
   <a name="variables--const-let-group"></a><a name="13.3"></a>
-  - [13.3](#variables--const-let-group) Group all your `const`s and then group all your `let`s.
+  - [13.3](#variables--const-let-group) 按照先 `const` 后 `let` 的方式对所有声明进行分组。
 
-    > Why? This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
+    > 为什么？当你需要引用前面的变量赋值时这将变的很有用。
 
     ```javascript
     // bad
@@ -1382,9 +1382,9 @@
     ```
 
   <a name="variables--define-where-used"></a><a name="13.4"></a>
-  - [13.4](#variables--define-where-used) Assign variables where you need them, but place them in a reasonable place.
+  - [13.4](#variables--define-where-used) 在使用变量的地方进行赋值，但要把它们放到合理的位置。
 
-    > Why? `let` and `const` are block scoped and not function scoped.
+    > 为什么？`let` 和 `const` 是块级作用域而不是函数作用域。
 
     ```javascript
     // bad - unnecessary function call
