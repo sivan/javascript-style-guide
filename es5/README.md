@@ -354,35 +354,35 @@
 
 ## <a name="variables">变量</a>
 
-  - 总是使用 `var` 来声明变量。不这么做将导致产生全局变量。我们要避免污染全局命名空间。
+  - 总是使用 `const` 或 `let` 来声明变量。不这么做将导致产生全局变量。我们要避免污染全局命名空间。
 
     ```javascript
     // bad
     superPower = new SuperPower();
 
     // good
-    var superPower = new SuperPower();
+    const superPower = new SuperPower();
     ```
 
-  - 使用 `var` 声明每一个变量。
+  - 使用 `const` 或 `let` 声明每一个变量。
     这样做的好处是增加新变量将变的更加容易，而且你永远不用再担心调换错 `;` 跟 `,`。
 
     ```javascript
     // bad
-    var items = getItems(),
+    const items = getItems(),
         goSportsTeam = true,
         dragonball = 'z';
 
     // bad
     // （跟上面的代码比较一下，看看哪里错了）
-    var items = getItems(),
+    const items = getItems(),
         goSportsTeam = true;
         dragonball = 'z';
 
     // good
-    var items = getItems();
-    var goSportsTeam = true;
-    var dragonball = 'z';
+    const items = getItems();
+    const goSportsTeam = true;
+    const dragonball = 'z';
     ```
 
   - 最后再声明未赋值的变量。当你需要引用前面的变量赋值时这将变的很有用。
