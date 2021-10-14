@@ -1169,15 +1169,15 @@
 
   > 为什么？JavaScript 并没有私有属性或私有方法的概念。虽然使用下划线是表示「私有」的一种共识，但实际上这些属性是完全公开的，它本身就是你公共接口的一部分。这种习惯或许会导致开发者错误的认为改动它不会造成破坏或者不需要去测试。长话短说：如果你想要某处为「私有」，它必须不能是显式提出的。
 
-    ```javascript
-    // bad
-    this.__firstName__ = 'Panda';
-    this.firstName_ = 'Panda';
-    this._firstName = 'Panda';
+  ```javascript
+  // bad
+  this.__firstName__ = 'Panda';
+  this.firstName_ = 'Panda';
+  this._firstName = 'Panda';
 
-    // good
-    this.firstName = 'Panda';
-    ```
+  // good
+  this.firstName = 'Panda';
+  ```
 
   - 不要保存 `this` 的引用。使用 Function#bind。
 
